@@ -5,6 +5,13 @@ var taco = {
         orm.all('tacos', function(res){
             cb(res);
         })
+    },
+    update:  function(id, cb){
+        orm.update('tacos', id, cb);
+    },
+
+    create:  function(name, cb){
+        orm.create('tacos', name, cb);
     }
 }
 

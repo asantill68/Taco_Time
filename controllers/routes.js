@@ -6,7 +6,20 @@ var taco = require('../models/taco.js');
 router.get('/', function(req, res){
     taco.all(function(taco_data){
         console.log(taco_data);
-        res.render('index');
+        res.render('index', {taco_data});
+    })
+})
+
+router.put('/tacos/update', function(res,req){
+    taco.update(req.body.taco_id, function(result){
+        console.log(result);
+        res.redirect('/');
+    })
+})
+
+router.post('/tacos/created', function(req, res){
+    taco.create(req.body.taco_name, function(result){
+        res.redirect('/');
     })
 })
 
