@@ -10,7 +10,7 @@ router.get('/', function(req, res){
     })
 })
 
-router.put('/tacos/update', function(res,req){
+router.put('/tacos/update', function(req, res){
     taco.update(req.body.taco_id, function(result){
         console.log(result);
         res.redirect('/');

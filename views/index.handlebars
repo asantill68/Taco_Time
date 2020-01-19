@@ -3,6 +3,7 @@
         <div class="col-xs-12 text-center" id="top-bar">
             <h1>Eat El Taco!!</h1>
         </div>
+{{!-- Display all data from tacos_db         --}}
         <div class="col-xs-6 text-center" class="task">
             <div class="row">
                 {{#each taco_data}}
@@ -10,18 +11,19 @@
                 <div class="col-xs-9 text-center">
                     <pre>{{this.id}}.  {{this.taco_name}}</pre>
                 </div>
-            <div class="col-xs-3 text-center">
-                <form action="/taco/update?_method=PUT" method="POST" class="button-size">
-                    <input type="hidden" name="taco_id" type="text" value="{{this.id}}">
-                    <br>
-                    <button type="submit" class="btn btn-default">COME TE El TACO!!</button>
-                </form>
-            </div>
-            {{/unless}}
-            {{/each}}
+{{!-- Creates a button to devour taco --}}
+                <div class="col-xs-3 text-center">
+                    <form method="POST" action="/tacos/update?_method=PUT" class="button-size">
+                        <input type="hidden" name="taco_id" type="text" value="{{this.id}}">
+                        <br>
+                        <button type="submit" class="btn btn-default">COME TE El TACO!!</button>
+                    </form>
+                </div>
+                    {{/unless}}
+                {{/each}}
             </div>
         </div>
-
+{{!-- Displays devoured tacos in another location  --}}
         <div class="col-xs-6 text-center" class="task">
             {{#each taco_data}}
                 {{#if this.devoured}}
@@ -31,7 +33,7 @@
         </div>
     </div>
 </div>
-
+{{!-- Add tacos to the database --}}
 <div class="container">
     <div class="row">
         <div class="col-xs-12 text-center enter_section">

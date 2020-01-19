@@ -16,7 +16,7 @@ var orm = {
     },
 
     create:  function(tableInput, val, cb){
-        connection.query('INSERT INTTO '+tableInput+" (taco_name) VALUES ('"+val+"');", function(err, result){
+        connection.query('INSERT INTO '+tableInput+" (taco_name) VALUES ('"+val+"');", function(err, result){
             if(err) throw err;
             cb(result);
         })
